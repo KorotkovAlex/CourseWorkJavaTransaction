@@ -1,0 +1,49 @@
+body {
+    padding:0;
+    margin:0;
+}
+input:valid {
+  border-color: green;
+}
+input:invalid {
+  border-color: red;
+}
+/*index.xhtml*/
+.homePage {
+    width: 100%;
+    margin: 0 auto;
+}
+.homePage img {
+    margin: 0 auto;
+}
+/*Page header.xhtml*/
+.menu {
+    width:100%;
+    height: 50px;
+    background-color: #f1f4f5;
+}
+.submenu {
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+/*Page errot.xhtml*/
+.error {
+    width:100%;
+    text-align: center;
+}
+/*Page footer.xhtml*/
+footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:100px;
+    width: 100%;
+    background: black;
+}
+.footer {
+    background-color: #f1f4f5;
+    width: 100%;
+    height:100px;
+}
+

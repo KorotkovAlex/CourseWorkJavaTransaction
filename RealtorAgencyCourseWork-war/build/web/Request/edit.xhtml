@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns:h="http://xmlns.jcp.org/jsf/html"                   
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <div>
+                    Название заявки <h:inputText id="name" value="#{requestManagedBean.request.name}"/>
+                    Купиить или продать <h:inputText id="type" value="#{requestManagedBean.request.type}"/>
+                    login <h:inputText id="Login" value="#{requestManagedBean.user.login}"/>
+                </div>
+             
+                    <h:outputLabel value="Squer:" for="squer" />
+                    <h:inputText id="squer" value="#{requestManagedBean.criterion.squer}" title="Squer" />
+                    <h:outputLabel value="MinPrice:" for="minPrice" />
+                    <h:inputText id="minPrice" value="#{requestManagedBean.criterion.minPrice}" title="MinPrice" />
+                    <h:outputLabel value="MaxPrice:" for="maxPrice" />
+                    <h:inputText id="maxPrice" value="#{requestManagedBean.criterion.maxPrice}" title="MaxPrice" />
+                    <h:outputLabel value="NumberRoom:" for="numberRoom" />
+                    <h:inputText id="numberRoom" value="#{requestManagedBean.criterion.numberRoom}" title="NumberRoom" />
+                    <h:outputLabel value="Street:" for="street" />
+                    <h:inputText id="street" value="#{requestManagedBean.criterion.street}" title="Street" />
+                    <h:outputLabel value="District:" for="district" />
+                    <h:inputText id="district" value="#{requestManagedBean.criterion.district}" title="District" />
+                    <h:outputLabel value="Floor:" for="floor" />
+                    <h:inputText id="floor" value="#{requestManagedBean.criterion.floor}" title="Floor" />
+                    <h:outputLabel value="TypeHome:" for="typeHome" />
+                    <h:inputText id="typeHome" value="#{requestManagedBean.criterion.typeHome}" title="TypeHome" />
+                    <h:outputLabel value="NumberFloors:" for="numberFloors" />
+                    <h:inputText id="numberFloors" value="#{requestManagedBean.criterion.numberFloors}" title="NumberFloors" />
+                    <h:commandButton value="Сохранить" action="#{requestManagedBean.edit()}"/>
+                
+                
+            </h:form>
+    </h:body>
+</html>
