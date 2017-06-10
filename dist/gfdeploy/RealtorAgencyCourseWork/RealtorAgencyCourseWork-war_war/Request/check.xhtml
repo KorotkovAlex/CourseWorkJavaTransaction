@@ -30,6 +30,11 @@ and open the template in the editor.
                             time<h:outputText value="#{request.time}"/>
                             type<h:outputText value="#{request.type}"/>
                             type<h:outputText value="#{request.userLogin.login}"/>
+                            <c:forEach var="criterion" items="#{request.criterionList}">
+                                <h:outputText value="#{criterion.squer}"/>
+                                <h:outputText value="#{criterion.minPrice}"/>
+                                <h:outputText value="#{criterion.maxPrice}"/>
+                            </c:forEach>
                             <h:commandButton value="Удалить" action="#{requestManagedBean.remove(request)}">
                             </h:commandButton> 
                             <h:commandLink value="Изменить" action="#{requestManagedBean.edit(request)}">

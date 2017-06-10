@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/css/uikit.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.22/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+        <h:form>
+                <ui:include src="../header.xhtml"/>
+                    <div>Личный кабинет</div>
+                    <c:if test="#{request.isUserInRole('Admin')}">
+                    <h:outputText value="Заявки клиентов"/>
+                    <c:forEach var="item" items="#{requestManagedBean.findAll()}">
+                        <br/>
+                        <h:outputText value="#{item.name}"/>
+                        <h:outputText value="#{item.time}"/>
+                        <h:outputText value="#{item.userLogin.login}"/>
+                        <c:forEach var="criterion" items="#{item.criterionList}">
+                            <h:outputText value="#{criterion.squer}"/>
+                            <h:outputText value="#{criterion.minPrice}"/>
+                            <h:outputText value="#{criterion.maxPrice}"/>
+                            <h:outputText value="#{criterion.numberRoom}"/>
+                            <h:outputText value="#{criterion.street}"/>
+                            <h:outputText value="#{criterion.district}"/>
+                            <h:outputText value="#{criterion.floor}"/>
+                            <h:outputText value="#{criterion.typeHome}"/>
+                            <h:outputText value="#{criterion.numberFloors}"/>
+                        </c:forEach>
+                        <h:commandButton value="Удалить" action="#{requestManagedBean.remove(item)}">
+                        </h:commandButton> 
+                        <h:commandLink value="Изменить" action="#{requestManagedBean.edit(item)}">
+                        </h:commandLink> 
+                        <h:commandLink value="Найти подходящий"
+                                       action="#{requestManagedBean.save(item)}">
+                        </h:commandLink> 
+                    </c:forEach>
+                </c:if>    
+                <c:if test="#{request.isUserInRole('Client')}">
+                    <a href="../Offer/check.xhtml">Посмотреть предложения</a>
+                    <a href="../Request/add.xhtml">Создать заявку</a>
+                    <br/>
+                    <h:outputText value="Мои заявки"/>
+                    <c:forEach var="item" items="#{requestManagedBean.findAll()}">                        
+                        <c:if test="#{request.remoteUser == item.userLogin.login}">
+                            <br/>
+                            <h:outputText value="#{item.name}"/>
+                            <h:outputText value="#{item.time}"/>
+                            <h:outputText value="#{item.userLogin.login}"/>
+                            <c:forEach var="criterion" items="#{item.criterionList}">
+                                <h:outputText value="#{criterion.squer}"/>
+                                <h:outputText value="#{criterion.minPrice}"/>
+                                <h:outputText value="#{criterion.maxPrice}"/>
+                                <h:outputText value="#{criterion.numberRoom}"/>
+                                <h:outputText value="#{criterion.street}"/>
+                                <h:outputText value="#{criterion.district}"/>
+                                <h:outputText value="#{criterion.floor}"/>
+                                <h:outputText value="#{criterion.typeHome}"/>
+                                <h:outputText value="#{criterion.numberFloors}"/>
+                            </c:forEach>                            
+                        </c:if>
+                    </c:forEach>
+                </c:if>                    
+        </h:form>
+    </body>
+</html>

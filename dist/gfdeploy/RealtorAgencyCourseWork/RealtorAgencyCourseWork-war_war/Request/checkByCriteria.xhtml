@@ -24,8 +24,9 @@ and open the template in the editor.
                     Добавить
                 </h:commandLink>
                 <div>
-                    <c:forEach var="request" items="#{requestManagedBean.findAll()}">
-                        <div>
+                    <h:outputText value="#{requestManagedBean.request2.name}"/>Test
+                    <c:forEach var="request" items="#{requestManagedBean.findAll2()}">
+                        <div>                           
                             name<h:outputText value="#{request.name}"/>
                             time<h:outputText value="#{request.time}"/>
                             type<h:outputText value="#{request.type}"/>
@@ -35,10 +36,6 @@ and open the template in the editor.
                                 <h:outputText value="#{criterion.minPrice}"/>
                                 <h:outputText value="#{criterion.maxPrice}"/>
                             </c:forEach>
-                            <h:commandButton value="Удалить" action="#{requestManagedBean.remove(request)}">
-                            </h:commandButton> 
-                            <h:commandLink value="Изменить" action="#{requestManagedBean.edit(request)}">
-                            </h:commandLink> 
                         </div>
                     </c:forEach>
                 </div>

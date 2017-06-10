@@ -15,8 +15,7 @@
                     Название заявки <h:inputText id="name" value="#{requestManagedBean.request.name}"/>
                     Купиить или продать <h:inputText id="type" value="#{requestManagedBean.request.type}"/>
                     login <h:inputText id="Login" value="#{requestManagedBean.user.login}"/>
-                </div>
-             
+                </div>             
                     <h:outputLabel value="Squer:" for="squer" />
                     <h:inputText id="squer" value="#{requestManagedBean.criterion.squer}" title="Squer" />
                     <h:outputLabel value="MinPrice:" for="minPrice" />
@@ -35,9 +34,7 @@
                     <h:inputText id="typeHome" value="#{requestManagedBean.criterion.typeHome}" title="TypeHome" />
                     <h:outputLabel value="NumberFloors:" for="numberFloors" />
                     <h:inputText id="numberFloors" value="#{requestManagedBean.criterion.numberFloors}" title="NumberFloors" />
-                    <h:commandButton value="Сохранить" action="#{requestManagedBean.create()}"/>
-                
-                
+                    <h:commandButton value="Сохранить" action="#{requestManagedBean.create()}"/>                          
             </h:form>
         </f:view>
     </h:body>

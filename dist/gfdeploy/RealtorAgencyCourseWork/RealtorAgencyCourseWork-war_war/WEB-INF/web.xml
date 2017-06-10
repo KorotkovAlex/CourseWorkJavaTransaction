@@ -43,7 +43,7 @@
         <web-resource-collection>
             <web-resource-name>login</web-resource-name>
             <description>login</description>
-            <url-pattern>/faces/privateOffice.xhtml</url-pattern>
+            <url-pattern>/faces/privateOffice/privateOffice.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>login</description>
